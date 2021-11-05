@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { App } from 'app'
+import { Header } from 'header'
 import 'normalize-css'
 
 const GlobalStyle = createGlobalStyle`
@@ -21,6 +22,7 @@ export function Root () {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <App />
     </>
   )
