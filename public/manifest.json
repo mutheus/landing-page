@@ -1,6 +1,6 @@
 {
-  "short_name": "rts-boilerplate",
-  "name": "react, typescript and styled-components boilerplate",
+  "short_name": "landing-page",
+  "name": "Landing Page",
   "icons": [
     {
       "src": "favicon.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#333",
+  "background_color": "#fff"
 }
