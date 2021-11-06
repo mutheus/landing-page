@@ -25,13 +25,7 @@ const brandsArr = [
 ]
 
 export const SliderWrapper = styled(Slider)`
-  .slick-prev {
-    display: none;
-  }
 
-  .slick-next {
-    display: none;
-  }
 `
 
 const BrandImg = styled.img`
@@ -42,13 +36,16 @@ const BrandImg = styled.img`
 export function BrandSlider () {
   const settings = {
     infite: true,
-    speed: 1500,
+    speed: 2000,
     slidesToShow: 8,
     slidesToScroll: 8,
-    autoplaySpeed: 1500,
-    cssEase: 'linear',
+    autoplaySpeed: 2000,
+    easing: 'linear',
     initialSlide: 0,
     autoplay: false,
+    swipe: false,
+    arrows: false,
+    pauseOnHover: false,
     responsive: [
       {
         breakpoint: 1024,
