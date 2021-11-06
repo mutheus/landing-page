@@ -2,6 +2,8 @@ import styled from 'styled-components/macro'
 import { ReactComponent as MathIcon } from './assets/math-icon.svg'
 import { ReactComponent as WorkspaceIcon } from './assets/workspace-icon.svg'
 import { ReactComponent as CompassIcon } from './assets/compass-icon.svg'
+import { ReactComponent as RightArrow } from 'shared/assets/right-arrow.svg'
+import { Button } from 'shared/styles'
 
 const BenefitsWrapper = styled.section`
   padding: 2.125em 1em;
@@ -38,6 +40,20 @@ const IconWrapper = styled.div`
   border: 2px solid ${({ theme }) => theme.colors.secondary};
   border-radius: 50%;
   display: flex;
+`
+
+const BenefitsButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
+  font-family: 'DM Sans', sans-serif;
+  height: 3.563em;
+  font-size: 1.036rem;
+
+  path {
+    fill: ${({ theme }) => theme.colors.white};
+    stroke-width: 1px;
+    stroke: ${({ theme }) => theme.colors.white};
+  }
 `
 
 export function Benefits () {
@@ -79,6 +95,8 @@ export function Benefits () {
             <p>Resolução instantânea de qualquer equação algébrica na plataforma, além de vídeos, apostilas, simulados e central de dúvidas 24h!</p>
           </div>
         </Benefit>
+
+        <BenefitsButton>Quero ser aprovado <RightArrow /></BenefitsButton>
       </Container>
     </BenefitsWrapper>
   )

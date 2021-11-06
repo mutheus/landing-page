@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import RobotImg from 'shared/assets/robot-image.png'
 import { ReactComponent as RightArrow } from 'shared/assets/right-arrow.svg'
+import { Button } from 'shared/styles'
 
 const HeroContainer = styled.section`
   background-color: ${({ theme }) => theme.colors.primary};
@@ -31,24 +32,6 @@ const Description = styled.p`
   letter-spacing: .38px;
   line-height: 1.5;
   padding: 0 3em;
-`
-
-const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.secondary};
-  font-weight: 700;
-  border: none;
-  height: 2.866em;
-  color: ${({ theme }) => theme.colors.primary};
-  border-radius: 6px;
-  width: 100%;
-  max-width: 294px;
-  margin-top: 5em;
-  padding: 0 1em;
-  cursor: pointer;
-
-  *:last-child {
-    margin-left: 1.57em;
-  }
 `
 
 export function Hero () {

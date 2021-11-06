@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import { Hero } from 'hero'
 import { BrandSlider } from 'brand-slider'
 import { Benefits } from 'benefits'
+import { Details } from 'details'
 
 const Main = styled.main`
   overflow: hidden;
@@ -13,6 +14,7 @@ export function App () {
       <Hero />
       <BrandSlider />
       <Benefits />
+      <Details />
     </Main>
   )
 }
