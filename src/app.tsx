@@ -4,6 +4,7 @@ import { BrandSlider } from 'brand-slider'
 import { Benefits } from 'benefits'
 import { Details } from 'details'
 import { Plans } from 'plans'
+import { Testimonials } from 'testimonials'
 
 const Main = styled.main`
   overflow: hidden;
@@ -17,6 +18,7 @@ export function App () {
       <Benefits />
       <Details />
       <Plans />
+      <Testimonials />
     </Main>
   )
 }

@@ -41,6 +41,7 @@ type StarProps = {
 
 const Header = styled.div`
   display: flex;
+  min-height: 5.6em;
 
   div:first-child {
     display: flex;
@@ -60,10 +61,6 @@ const Header = styled.div`
       font-family: 'Nunito', sans-serif;
     }
   }
-
-  div:last-child {
-
-  }
 `
 
 const StarWrapper = styled.div<StarProps>`
@@ -72,10 +69,9 @@ const StarWrapper = styled.div<StarProps>`
     background-image: url(${({ star }) => star});
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 2em;
     transform: rotate(19.52deg);
     text-align: center;
-    height: auto;
+    min-height: 5.6em;
     aspect-ratio: 1/1;
     background-position: center;
     display: flex;
