@@ -3,10 +3,14 @@ import styled from 'styled-components/macro'
 import { photo1, photo2, photo3, photo4 } from './assets'
 import { ReactComponent as QuoteIcon } from './assets/quote-icon.svg'
 import { ReactComponent as RatingIcon } from './assets/rating-stars.svg'
+import { ReactComponent as ArrowIcon } from './assets/arrow-icon.svg'
 
 const Wrapper = styled.section`
-  padding: 0 1em;
-  margin-top: 5.5em;
+  margin: 5.5em 0 2.494em;
+`
+
+const SliderWrapper = styled(Slider)`
+  position: relative;
 `
 
 const Title = styled.h3`
@@ -20,16 +24,73 @@ const Title = styled.h3`
 const Subtitle = styled.h4`
   font-size: 1.125rem;
   color: ${({ theme }) => theme.colors.primary};
-  margin: .5em 0 3em;
+  margin: .5em auto 1.5em;
   text-align: center;
+  max-width: 15em;
 `
 
 const Image = styled.img`
-  max-width: 100%;
-  max-width: 55.14px;
-  aspect-ratio: 1/1;
+  width: 55px;
+  height: 55px;
   object-fit: cover;
   border-radius: 50%;
+`
+
+const TestimonialCard = styled.div`
+  padding: 1.375em;
+  box-shadow: 0px 0.918919px 3.67568px rgba(0, 0, 0, 0.22);
+  border-radius: .575em;
+  margin: 2em .9375em 4em;
+  color: ${({ theme }) => theme.colors.text};
+
+  > p {
+    margin-bottom: 4em;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: .861em;
+
+    *:last-child {
+      margin-left: auto;
+    }
+
+    h5 {
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin: 5px 0;
+      color: ${({ theme }) => theme.colors.primary};
+    }
+
+    p {
+      margin: 0;
+      font-size: .75rem;
+    }
+  }
+`
+
+type ArrowBtnProps = {
+  right: boolean
+}
+
+const ArrowBtn = styled.button<ArrowBtnProps>`
+  width: 31px;
+  aspect-ratio: 1/1;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: ${({ right }) => right ? 'calc(50% + 1px)' : 'none'};
+  left: ${({ right }) => !right ? 'calc(50% + 1px)' : 'none'};
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: ${({ right }) => right ? 'none' : 'rotate(180deg)'};
 `
 
 const testimonialsData = [
@@ -55,19 +116,33 @@ const testimonialsData = [
   },
 ]
 
+const NextArrow = ({ onClick }: any) => {
+  return (
+    <ArrowBtn right onClick={onClick}>
+      <ArrowIcon />
+    </ArrowBtn>
+  )
+}
+
+const PrevArrow = ({ onClick }: any) => {
+  return (
+    <ArrowBtn right={false} onClick={onClick}>
+      <ArrowIcon />
+    </ArrowBtn>
+  )
+}
+
 export function Testimonials () {
   const settigns = {
     infite: true,
-    speed: 2000,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplaySpeed: 2000,
     easing: 'linear',
     initialSlide: 0,
-    autoplay: true,
-    swipe: true,
-    arrows: false,
-    pauseOnHover: true,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 900,
@@ -85,28 +160,31 @@ export function Testimonials () {
 
       <Subtitle>Recomendados por quem é expert no assunto</Subtitle>
 
-      <Slider {...settigns}>
+      <SliderWrapper {...settigns}>
         {
           testimonialsData.map((item, index) => (
             <div key={index}>
-              <RatingIcon />
+              <TestimonialCard key={index}>
+                <RatingIcon />
 
-              <p>Lorem ipsum dolor sit amet, consecte tur adipiscing elit. Ultrices blandit pelle ntesque nibh arcu elementum odio justo. Rhoncus.</p>
-
-              <div>
-                <Image src={item.avatar} alt={`${item.author}`} />
+                <p>Lorem ipsum dolor sit amet, consecte tur adipiscing elit. Ultrices blandit pelle ntesque nibh arcu elementum odio justo. Rhoncus.</p>
 
                 <div>
-                  <h5>{item.author}</h5>
-                  <p>{item.occupation}</p>
-                </div>
+                  <Image src={item.avatar} alt={`${item.author}`} />
 
-                <QuoteIcon />
-              </div>
+                  <div>
+                    <h5>{item.author}</h5>
+
+                    <p>{item.occupation}</p>
+                  </div>
+
+                  <QuoteIcon />
+                </div>
+              </TestimonialCard>
             </div>
           ))
         }
-      </Slider>
+      </SliderWrapper>
     </Wrapper>
   )
 }
