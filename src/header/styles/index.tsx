@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.header`
   top : 0;
   background-color: ${({ theme }) => theme.colors.white};
   z-index: 10;
-  width: 100%;
+  width: 100vw;
 `
 
 export const LogoWrapper = styled.a`

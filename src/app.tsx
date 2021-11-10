@@ -7,10 +7,15 @@ import { Testimonials } from 'testimonials'
 import { AppSection } from 'app-section'
 import { Footer } from 'footer'
 import { Header } from 'header'
+import styled from 'styled-components'
+
+const Main = styled.main`
+  overflow: hidden;
+`
 
 export function App () {
   return (
-    <main>
+    <Main>
       <Header />
       <Hero />
       <BrandSlider />
@@ -20,6 +25,6 @@ export function App () {
       <Testimonials />
       <AppSection />
       <Footer />
-    </main>
+    </Main>
   )
 }
