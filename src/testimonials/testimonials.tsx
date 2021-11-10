@@ -86,7 +86,6 @@ const ArrowBtn = styled.button<ArrowBtnProps>`
   bottom: 0;
   right: ${({ right }) => right ? 'calc(50% + 1px)' : 'none'};
   left: ${({ right }) => !right ? 'calc(50% + 1px)' : 'none'};
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
