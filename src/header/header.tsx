@@ -1,8 +1,9 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 import { ReactComponent as Logo } from 'shared/assets/brand-logo.svg'
 import { ReactComponent as MenuIcon } from './assets/bars.svg'
 import { Button } from 'shared/styles'
 import { Link } from 'react-scroll'
+import { useState } from 'react'
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -13,10 +14,6 @@ const HeaderWrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.white};
   z-index: 10;
   width: 100%;
-
-  *:last-child {
-    margin-left: auto;
-  }
 `
 
 const LogoWrapper = styled.a`
@@ -40,8 +37,26 @@ const LogoSvg = styled(Logo)`
   }
 `
 
-const NavWrapper = styled.div`
-  display: none;
+type NavWrapperProps = {
+  isMenuOpen: boolean
+}
+
+const NavWrapper = styled.div<NavWrapperProps>`${({ isMenuOpen, theme }) => css`
+  display: ${isMenuOpen ? 'flex' : 'none'};
+
+  @media (max-width: 800px) {
+    position: absolute;
+    background-color: ${theme.colors.white};
+    left: 0;
+    top: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    nav {
+      width: 100%;
+      padding: 4em 2em;
+    }
+  }
 
   nav {
     display: flex;
@@ -49,7 +64,7 @@ const NavWrapper = styled.div`
     gap: 2em;
 
     .active {
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${theme.colors.primary};
       font-weight: 700;
     }
   }
@@ -64,12 +79,12 @@ const NavWrapper = styled.div`
 
       a {
         min-width: max-content;
-        color: ${({ theme }) => theme.colors.text};
+        color: ${theme.colors.text};
         text-decoration: none;
       }
     }
   }
-`
+`}`
 
 const NavButton = styled(Button)`
   margin: 0;
@@ -84,8 +99,10 @@ const NavButton = styled(Button)`
 const MenuBtn = styled.button`
   padding: 0.4em;
   margin: 0;
+  margin-left: auto;
   background-color: transparent;
   border: none;
+  z-index: 10;
 
   @media (min-width: 800px) {
     display: none;
@@ -97,23 +114,60 @@ const NavLink = styled(Link)`
 `
 
 export function Header () {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <HeaderWrapper>
       <LogoWrapper href='/'>
         <LogoSvg />
       </LogoWrapper>
 
-      <NavWrapper>
+      <NavWrapper isMenuOpen={isMenuOpen}>
         <nav>
-          <NavLink to='home' activeClass='active' spy smooth duration={100}>Home</NavLink>
-          <NavLink to='quem-somos' spy smooth duration={100}>Quem somos</NavLink>
-          <NavLink to='planos' spy smooth duration={100}>Planos</NavLink>
-          <NavLink to='fale-conosco' spy smooth duration={100}>Fale conosco</NavLink>
+          <NavLink
+            onClick={() => setIsMenuOpen(menu => !menu)}
+            to='home'
+            activeClass='active'
+            spy
+            smooth
+            duration={100}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            onClick={() => setIsMenuOpen(menu => !menu)}
+            to='quem-somos'
+            spy
+            smooth
+            duration={100}
+          >
+            Quem somos
+          </NavLink>
+          <NavLink
+            onClick={() => setIsMenuOpen(menu => !menu)}
+            to='planos'
+            spy
+            smooth
+            duration={100}
+          >
+            Planos
+          </NavLink>
+          <NavLink
+            onClick={() => setIsMenuOpen(menu => !menu)}
+            to='fale-conosco'
+            spy
+            smooth
+            duration={100}
+          >
+            Fale conosco
+          </NavLink>
           <NavButton>Entrar</NavButton>
         </nav>
       </NavWrapper>
 
-      <MenuBtn>
+      <MenuBtn
+        onClick={() => setIsMenuOpen(menu => !menu)}
+      >
         <MenuIcon />
       </MenuBtn>
     </HeaderWrapper>
