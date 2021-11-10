@@ -6,6 +6,7 @@ import { Details } from 'details'
 import { Plans } from 'plans'
 import { Testimonials } from 'testimonials'
 import { AppSection } from 'app-section'
+import { Footer } from 'footer'
 
 const Main = styled.main`
   overflow: hidden;
@@ -21,6 +22,7 @@ export function App () {
       <Plans />
       <Testimonials />
       <AppSection />
+      <Footer />
     </Main>
   )
 }
