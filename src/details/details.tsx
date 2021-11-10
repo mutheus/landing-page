@@ -3,7 +3,7 @@ import boyOnARocket from './assets/boy-on-a-rocket.png'
 import boyJumping from './assets/boy-jumping.png'
 
 const DetailsWrapper = styled.section`
-  padding: 0 1em;
+  padding: 85.84px 1em;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@ const Paragraph = styled.p`
 
 export function Details () {
   return (
-    <DetailsWrapper>
+    <DetailsWrapper id='quem-somos'>
       <div>
         <Content>
           <Title>100% Matemática</Title>

@@ -1,6 +1,5 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { App } from 'app'
-import { Header } from 'header'
 import { theme } from 'resources/theme'
 import 'normalize-css'
 
@@ -24,7 +23,6 @@ export function Root () {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header />
       <App />
     </ThemeProvider>
   )

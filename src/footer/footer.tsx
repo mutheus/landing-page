@@ -7,9 +7,10 @@ import { ReactComponent as TwitterLogo } from 'shared/assets/twitter-fill.svg'
 import { ReactComponent as CopyrightIcon } from 'shared/assets/copyright-icon.svg'
 import { ReactComponent as UpIcon } from 'shared/assets/up-icon.svg'
 import styled from 'styled-components'
+import { animateScroll as scroll } from 'react-scroll'
 
 const FooterWrapper = styled.div`
-  padding: 3.938em 1em 1.5em;
+  padding: 85.84px 1em 1.5em;
   display: flex;
   flex-direction: column;
   gap: 3.125em;
@@ -87,13 +88,8 @@ const Socials = styled.div`
 `
 
 export function Footer () {
-  const scrollTop = () => {
-    document.body.scrollTop = 0
-    document.documentElement.scrollTop = 0
-  }
-
   return (
-    <FooterWrapper>
+    <FooterWrapper id='fale-conosco'>
       <LogoWraper>
         <a href='/'>
           <Logo />
@@ -151,7 +147,7 @@ export function Footer () {
         </p>
       </Socials>
 
-      <UpButton onClick={scrollTop}>
+      <UpButton onClick={() => scroll.scrollToTop({ duration: 100, smooth: 'easeInOutQuint' })}>
         <UpIcon />
       </UpButton>
     </FooterWrapper>

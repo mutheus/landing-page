@@ -36,7 +36,7 @@ const Description = styled.p`
 
 export function Hero () {
   return (
-    <HeroContainer>
+    <HeroContainer id='home'>
       <img src={RobotImg} alt='Robot illustration' />
 
       <Subtitle>Seja aprovado no Enem e Vestibulares :)</Subtitle>

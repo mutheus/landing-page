@@ -4,7 +4,7 @@ import { ReactComponent as CheckIcon } from './assets/check-icon.svg'
 import { Button } from 'shared/styles'
 
 const PlansWrapper = styled.section`
-  padding: 0 1em;
+  padding: 85.84px 1em;
   margin: 2em 0;
 `
 
@@ -182,7 +182,7 @@ const SecondaryPlanPrice = styled(PlanPrice)`
 
 export function Plans () {
   return (
-    <PlansWrapper>
+    <PlansWrapper id='planos'>
       <Title>Nossos planos</Title>
 
       <Subtitle>Invista no seu futuro</Subtitle>
