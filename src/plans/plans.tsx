@@ -1,273 +1,97 @@
-import styled from 'styled-components/macro'
 import StarSvg from './assets/star-vector.svg'
 import { ReactComponent as CheckIcon } from './assets/check-icon.svg'
-import { Button } from 'shared/styles'
-
-const PlansWrapper = styled.section`
-  padding: 85.84px 1em;
-  margin: 2em 0;
-`
-
-const Title = styled.h3`
-  font-size: 1.25rem;
-  margin: 0;
-  color: ${({ theme }) => theme.colors.secondary};
-  text-transform: uppercase;
-  text-align: center;
-`
-
-const Subtitle = styled.h4`
-  font-size: 1.125rem;
-  color: ${({ theme }) => theme.colors.primary};
-  margin: .5em 0 3em;
-  text-align: center;
-`
-
-const Card = styled.div`
-  padding: 1.5em;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-  border-radius: 10px;
-  font-family: 'Nunito', sans-serif;
-  display: flex;
-  flex-direction: column;
-  gap: .7em;
-  margin-bottom: 1.438em;
-`
-
-type StarProps = {
-  star: string
-}
-
-const Header = styled.div`
-  display: flex;
-  min-height: 5.6em;
-
-  div:first-child {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    p {
-      font-size: .75rem;
-      color: #3C5882;
-      margin: 0;
-    }
-
-    h5 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin: .313em 0;
-      font-family: 'Nunito', sans-serif;
-    }
-  }
-`
-
-const StarWrapper = styled.div<StarProps>`
-  margin-left: auto;
-  color: ${({ theme }) => theme.colors.primary};
-    background-image: url(${({ star }) => star});
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: rotate(19.52deg);
-    text-align: center;
-    min-height: 5.6em;
-    aspect-ratio: 1/1;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    h6 {
-      font-size: 1.25rem;
-      margin: 0;
-    }
-
-    span {
-      font-size: .5rem;
-    }
-`
-
-const Body = styled.div`
-  h5 {
-    font-size: .75rem;
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-
-  ul {
-    padding-left: 29px;
-    font-size: .563rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-  }
-
-  li {
-    list-style: none;
-    line-height: 2.2;
-  }
-
-  svg {
-    margin-right: .688em;
-  }
-`
-
-const Footer = styled.div`
-  display: flex;
-  font-size: .5rem;
-  color: rgba(255, 255, 255, 0.45);
-  place-items: center;
-`
-
-const PlanPriceWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  gap: 5px;
-
-  p {
-    margin: 0;
-  }
-`
-
-const CardButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.white};
-  background-image: linear-gradient(145.09deg, rgba(38, 233, 207, 1), rgba(37, 205, 225, 1));
-  box-shadow: -0.652262px 0.652262px 3.91357px rgba(126, 87, 87, 0.26);
-  border-radius: 6px;
-  max-width: 111px;
-  height: 33.64px;
-  font-size: .625rem;
-  font-family: 'DM Sans', sans-serif;
-  margin: 0;
-  margin-left: auto;
-`
-
-const Currency = styled.span`
-  font-size: .7rem;
-  color: ${({ theme }) => theme.colors.secondary};
-`
-
-const CurrencyValue = styled.p`
-  font-size: 1.25rem;
-  color: ${({ theme }) => theme.colors.white};
-`
-
-const PlanPrice = styled.div`
-  display: flex;
-  gap: 4px;
-`
-
-const SecondaryCard = styled(Card)`
-  background-color: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.primary};
-  border: 0.56px solid rgba(32, 30, 84, 0.18);
-
-  path {
-    fill: ${({ theme }) => theme.colors.primary};
-  }
-`
-
-const SecondaryButton = styled(CardButton)`
-  background: ${({ theme }) => theme.colors.primary};
-`
-
-const SecondaryPlanPrice = styled(PlanPrice)`
-  p,
-  span:last-child {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`
+import * as S from './styles'
 
 export function Plans () {
   return (
-    <PlansWrapper id='planos'>
-      <Title>Nossos planos</Title>
+    <S.PlansWrapper id='planos'>
+      <S.Title>Nossos planos</S.Title>
 
-      <Subtitle>Invista no seu futuro</Subtitle>
+      <S.Subtitle>Invista no seu futuro</S.Subtitle>
 
-      <Card>
-        <Header>
-          <div>
-            <p>1 ano de acesso</p>
+      <div>
+        <S.Card>
+          <S.Header>
+            <div>
+              <p>1 ano de acesso</p>
 
-            <h5>Plano recomendado</h5>
-          </div>
+              <h5>Plano recomendado</h5>
+            </div>
 
-          <StarWrapper star={StarSvg}>
-            <h6>70%</h6>
+            <S.StarWrapper star={StarSvg}>
+              <h6>70%</h6>
 
-            <span>de desconto</span>
-          </StarWrapper>
-        </Header>
+              <span>de desconto</span>
+            </S.StarWrapper>
+          </S.Header>
 
-        <Body>
-          <h5>vantagens</h5>
+          <S.Body>
+            <h5>vantagens</h5>
 
-          <ul>
-            <li><CheckIcon /> Acesso a todos os benefícios da Plataforma (Videoaulas, Exercícios, Apostilas e muito mais)</li>
-            <li><CheckIcon /> 36 aulas ao vivo</li>
-            <li><CheckIcon /> Revisão para o ENEM</li>
-            <li><CheckIcon /> Grupo no Whatsapp com professores e alunos</li>
-            <li><CheckIcon /> Reforço para FUVEST, Unicamp e Vestibulares de Medicina</li>
-          </ul>
-        </Body>
+            <ul>
+              <li><CheckIcon /> Acesso a todos os benefícios da Plataforma (Videoaulas, Exercícios, Apostilas e muito mais)</li>
+              <li><CheckIcon /> 36 aulas ao vivo</li>
+              <li><CheckIcon /> Revisão para o ENEM</li>
+              <li><CheckIcon /> Grupo no Whatsapp com professores e alunos</li>
+              <li><CheckIcon /> Reforço para FUVEST, Unicamp e Vestibulares de Medicina</li>
+            </ul>
+          </S.Body>
 
-        <Footer>
-          <PlanPriceWrapper>
-            <small>de R$ 178,80</small>
+          <S.Footer>
+            <S.PlanPriceWrapper>
+              <small>de R$ 178,80</small>
 
-            <PlanPrice>
-              <Currency>R$</Currency>
+              <S.PlanPrice>
+                <S.Currency>R$</S.Currency>
 
-              <CurrencyValue>49,90</CurrencyValue>
+                <S.CurrencyValue>49,90</S.CurrencyValue>
 
-              <span>/ano</span>
-            </PlanPrice>
+                <span>/ano</span>
+              </S.PlanPrice>
 
-            <p>Menos de 5 reais por mês :)</p>
-          </PlanPriceWrapper>
+              <p>Menos de 5 reais por mês :)</p>
+            </S.PlanPriceWrapper>
 
-          <CardButton>Eu quero!</CardButton>
-        </Footer>
-      </Card>
+            <S.CardButton>Eu quero!</S.CardButton>
+          </S.Footer>
+        </S.Card>
 
-      <SecondaryCard>
-        <Header>
-          <div>
-            <p>6 meses de acesso</p>
+        <S.SecondaryCard>
+          <S.Header>
+            <div>
+              <p>6 meses de acesso</p>
 
-            <h5>Plano Aprovado</h5>
-          </div>
-        </Header>
+              <h5>Plano Aprovado</h5>
+            </div>
+          </S.Header>
 
-        <Body>
-          <h5>vantagens</h5>
+          <S.Body>
+            <h5>vantagens</h5>
 
-          <ul>
-            <li><CheckIcon /> Acesso a todos as videoaulas</li>
-            <li><CheckIcon /> Ganhe pontos resolvendo questões e troque por prêmios</li>
-            <li><CheckIcon /> 3.000 exercícios com resolucão em vídeo</li>
-            <li><CheckIcon /> 4 apostilas com todo o conteúdo de Matemática</li>
-            <li><CheckIcon /> Reforço para FUVEST, Unicamp e Vestibulares de Medicina</li>
-          </ul>
-        </Body>
+            <ul>
+              <li><CheckIcon /> Acesso a todos as videoaulas</li>
+              <li><CheckIcon /> Ganhe pontos resolvendo questões e troque por prêmios</li>
+              <li><CheckIcon /> 3.000 exercícios com resolucão em vídeo</li>
+              <li><CheckIcon /> 4 apostilas com todo o conteúdo de Matemática</li>
+              <li><CheckIcon /> Reforço para FUVEST, Unicamp e Vestibulares de Medicina</li>
+            </ul>
+          </S.Body>
 
-        <Footer>
-          <PlanPriceWrapper>
-            <SecondaryPlanPrice>
-              <Currency>R$</Currency>
+          <S.Footer>
+            <S.PlanPriceWrapper>
+              <S.SecondaryPlanPrice>
+                <S.Currency>R$</S.Currency>
 
-              <CurrencyValue>39,90</CurrencyValue>
+                <S.CurrencyValue>39,90</S.CurrencyValue>
 
-              <span>/semestre</span>
-            </SecondaryPlanPrice>
-          </PlanPriceWrapper>
+                <span>/semestre</span>
+              </S.SecondaryPlanPrice>
+            </S.PlanPriceWrapper>
 
-          <SecondaryButton>Eu quero!</SecondaryButton>
-        </Footer>
-      </SecondaryCard>
-    </PlansWrapper>
+            <S.SecondaryButton>Eu quero!</S.SecondaryButton>
+          </S.Footer>
+        </S.SecondaryCard>
+      </div>
+    </S.PlansWrapper>
   )
 }
