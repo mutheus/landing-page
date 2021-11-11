@@ -7,11 +7,11 @@ export function Hero () {
   return (
     <S.HeroContainer id='home'>
       <div>
-        <div>
+        <S.Header>
           <img src={RobotImg} alt='Robot illustration' />
 
           <S.Subtitle>Seja aprovado no Enem e Vestibulares :)</S.Subtitle>
-        </div>
+        </S.Header>
 
         <S.Title>Você escolhe <br />o que aprender<span>.</span></S.Title>
 
@@ -20,7 +20,7 @@ export function Hero () {
         <S.HeroButton>Veja nossos planos <RightArrow /></S.HeroButton>
       </div>
 
-      <img src={HeroIllustration} alt='Boy studying' />
+      <S.BoyIllustration src={HeroIllustration} alt='Boy studying' />
     </S.HeroContainer>
   )
 }

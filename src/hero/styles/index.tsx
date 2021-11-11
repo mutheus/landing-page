@@ -9,10 +9,6 @@ export const HeroContainer = styled.section`
   padding: 12em 1em 9em;
   text-align: center;
 
-  > img {
-    display: none;
-  }
-
   @media (min-width: 800px) {
     display: flex;
     align-items: center;
@@ -25,16 +21,29 @@ export const HeroContainer = styled.section`
     background-position-x: right, 10%;
     background-position-y: center, center;
 
-    > img {
-      display: initial;
-      width: 40%;
-    }
-
     > div div {
       display: flex;
       align-items: center;
       gap: 1.438em;
     }
+  }
+`
+
+export const Header = styled.div`
+  @media (min-width: 800px) {
+    display: flex;
+    align-items: center;
+    gap: 1.438em;
+
+  }
+`
+
+export const BoyIllustration = styled.img`
+  display: none;
+
+  @media (min-width: 800px) {
+    display: initial;
+    width: 40%;
   }
 `
 
@@ -65,6 +74,7 @@ export const Description = styled.p`
   @media (min-width: 800px) {
     padding: 0;
     max-width: 25em;
+    margin: 0;
   }
 `
 
