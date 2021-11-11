@@ -24,5 +24,5 @@ yarn install
 Then, run the development server:
 
 ```bash
-yarb start
+yarn start
 ```
