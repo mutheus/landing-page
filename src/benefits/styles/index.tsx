@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import { Button } from 'shared/styles'
 
 export const BenefitsWrapper = styled.section`
-  padding: 2.125em 1em;
+  padding: 2.125em 1em 0;
 
   @media (min-width: 800px) {
     display: flex;
@@ -41,6 +41,9 @@ export const PhotosWrapper = styled.div`
 
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
     }
   }
 `
