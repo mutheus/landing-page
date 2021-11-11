@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.header`
   position : fixed;
   top : 0;
   background-color: ${({ theme }) => theme.colors.white};
-  z-index: 10;
+  z-index: 110;
   width: 100vw;
 `
 

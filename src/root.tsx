@@ -8,6 +8,14 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     box-sizing: border-box;
     scroll-behavior: smooth;
+
+    @media (min-width: 800px) {
+      font-size: 105%;
+    }
+
+    @media (min-width: 1080px) {
+      font-size: 120%;
+    }
   }
 
   *, *:before, *:after {
