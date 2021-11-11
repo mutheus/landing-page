@@ -12,12 +12,16 @@ export const PlansWrapper = styled.section`
   }
 
   @media (min-width: 800px) {
-    max-width: 80vw;
+    max-width: none;
 
     > div {
       display: flex;
       gap: 2em;
     }
+  }
+
+  @media (min-width: 1080px) {
+    max-width: 80vw;
   }
 `
 
