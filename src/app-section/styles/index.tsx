@@ -69,6 +69,7 @@ export const AppDetails = styled.div`
 
 export const AppButton = styled(Button)`
   margin-top: 3em;
+  min-width: max-content;
 
   @media (min-width: 800px) {
     margin: 0;

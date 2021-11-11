@@ -69,6 +69,13 @@ export function Testimonials () {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 610,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
   }
 
